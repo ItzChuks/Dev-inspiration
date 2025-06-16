@@ -125,37 +125,49 @@
         
         <!-- Main Content -->
         <main>
-            <div class="quote-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 mb-6 fade-in">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary-dark flex items-center justify-center text-white">
-                        <i class="fas fa-code text-xl"></i>
-                    </div>
-                    <div class="flex space-x-2">
-                        <button id="copy-btn" class="tooltip p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                            <i class="far fa-copy text-gray-600 dark:text-gray-300"></i>
-                            <span class="tooltip-text">Copy Quote</span>
-                        </button>
-                        <button id="share-btn" class="tooltip p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                            <i class="fas fa-share-alt text-gray-600 dark:text-gray-300"></i>
-                            <span class="tooltip-text">Share Quote</span>
-                        </button>
-                    </div>
+            <div class="flex flex-col items-center" style="padding-top: 4rem;">
+                 <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-primary-light dark:border-primary-dark p-2 mb-6 -mt-16 w-40 h-40 md:w-56 md:h-56 flex items-center justify-center">
+                    <img
+                    id="author-img"
+                    src=""
+                    alt="Author"
+                    class="w-36 h-36 md:w-52 md:h-52 rounded-2xl object-cover"
+                    />
                 </div>
-                
-                <div class="mb-6">
-                    <p id="quote-text" class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4 font-medium leading-relaxed">
-                        "The only way to learn a new programming language is by writing programs in it."
-                    </p>
-                    <p id="quote-author" class="text-right text-primary-light dark:text-primary-dark font-mono">
-                        - Dennis Ritchie
-                    </p>
-                </div>
-                
-                <div class="flex justify-center">
-                    <button id="new-quote-btn" class="bg-primary-light dark:bg-primary-dark hover:bg-primary-dark dark:hover:bg-primary-light text-white font-medium py-2 px-6 rounded-full transition-colors flex items-center">
-                        <i class="fas fa-sync-alt mr-2"></i>
-                        New Inspiration
-                    </button>
+                <div class="quote-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 mb-6 fade-in w-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary-dark flex items-center justify-center text-white">
+                                <i class="fas fa-code text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button id="copy-btn" class="tooltip p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                <i class="far fa-copy text-gray-600 dark:text-gray-300"></i>
+                                <span class="tooltip-text">Copy Quote</span>
+                            </button>
+                            <button id="share-btn" class="tooltip p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                <i class="fas fa-share-alt text-gray-600 dark:text-gray-300"></i>
+                                <span class="tooltip-text">Share Quote</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <p id="quote-text" class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4 font-medium leading-relaxed">
+                            "The only way to learn a new programming language is by writing programs in it."
+                        </p>
+                        <p id="quote-author" class="text-right text-primary-light dark:text-primary-dark font-mono">
+                            - Dennis Ritchie
+                        </p>
+                    </div>
+                    
+                    <div class="flex justify-center">
+                        <button id="new-quote-btn" class="bg-primary-light dark:bg-primary-dark hover:bg-primary-dark dark:hover:bg-primary-light text-white font-medium py-2 px-6 rounded-full transition-colors flex items-center">
+                            <i class="fas fa-sync-alt mr-2"></i>
+                            New Inspiration
+                        </button>
+                    </div>
                 </div>
             </div>
             
@@ -176,63 +188,78 @@
         const quotes = [
             {
                 text: "The only way to learn a new programming language is by writing programs in it.",
-                author: "Dennis Ritchie"
+                author: "Dennis Ritchie",
+                image: "images/Dennis Ritchie.jpg"
             },
             {
                 text: "First, solve the problem. Then, write the code.",
-                author: "John Johnson"
+                author: "John Johnson",
+                image: "images/John Johnson.jpg"
             },
             {
                 text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
-                author: "Martin Fowler"
+                author: "Martin Fowler",
+                image: "images/Martin Fowler.jpg"
             },
             {
                 text: "The most disastrous thing that you can ever learn is your first programming language.",
-                author: "Alan Kay"
+                author: "Alan Kay",
+                image: "images/Alan Kay.jpg"
             },
             {
                 text: "The most important property of a program is whether it accomplishes the intention of its user.",
-                author: "C.A.R. Hoare"
+                author: "C.A.R. Hoare",
+                image: "images/C.A.R. Hoare.jpg"
             },
             {
                 text: "Programming isn't about what you know; it's about what you can figure out.",
-                author: "Chris Pine"
+                author: "Chris Pine",
+                image: "images/Chris Pine.jpg"
             },
             {
                 text: "The best error message is the one that never shows up.",
-                author: "Thomas Fuchs"
+                author: "Thomas Fuchs",
+                image: "images/Thomas Fuchs.jpg"
             },
             {
                 text: "Don't write better error messages, write code that doesn't need them.",
-                author: "Jason C. McDonald"
+                author: "Jason C. McDonald",
+                image: "images/Jason C. McDonald.jpg"
             },
             {
                 text: "Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.",
-                author: "Patrick McKenzie"
+                author: "Patrick McKenzie",
+                image: "images/patrick-mckenzie-1.webp"
             },
             {
                 text: "It's not a bug; it's an undocumented feature.",
-                author: "Chuks "
+                author: "Chuks",
+                image: "images/chuks.jpg"
             },
             {
                 text: "Code is like humor. When you have to explain it, it's bad.",
-                author: "Cory House"
+                author: "Cory House",
+                image: "images/Cory House.jpg"
             },
             {
                 text: "Make it work, make it right, make it fast.",
-                author: "Kent Beck"
+                author: "Kent Beck",
+                image: "images/Kent Beck2.jpg"
             },
             {
                 text: "Optimism is an occupational hazard of programming; feedback is the treatment.",
-                author: "Kent Beck"
+                author: "Kent Beck",
+                image: "images/Kent Beck.jpg"
             },
             {
                 text: "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday's code.",
-                author: "Dan Salomon"
+                author: "Dan Salomon",
+                image: "images/Dan Salomon.jpg"
             },
             {
                 text: "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
-                author: "Bill Gates"
+                author: "Bill Gates",
+                image: "images/Bill Gates.jpg"
             }
         ];
 
@@ -243,6 +270,7 @@
         const copyBtn = document.getElementById('copy-btn');
         const shareBtn = document.getElementById('share-btn');
         const themeToggle = document.getElementById('theme-toggle');
+        const authorImg = document.getElementById('author-img');
 
         // Get a random quote
         function getRandomQuote() {
@@ -255,9 +283,11 @@
             quoteCard.classList.remove('fade-in');
             
             setTimeout(() => {
-                const {text, author} = getRandomQuote();
+                const {text, author, image} = getRandomQuote();
                 quoteText.textContent = text;
                 quoteAuthor.textContent = `- ${author}`;
+                authorImg.src = image;
+                authorImg.alt = author;
                 quoteCard.classList.add('fade-in');
             }, 300);
         }
