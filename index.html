@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Daily Inspiration | Motivational Quotes for Developers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#3b82f6',
+                            dark: '#2563eb'
+                        },
+                        secondary: {
+                            light: '#10b981',
+                            dark: '#059669'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+                        'mono': ['Fira Code', 'ui-monospace', 'SFMono-Regular']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap');
+        
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .quote-card {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .dark .quote-card {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation: typing 1s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: inherit; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+        }
+        
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .dark .tooltip .tooltip-text {
+            background-color: #fff;
+            color: #333;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen flex flex-col items-center justify-center p-4 font-sans">
+    <div class="w-full max-w-2xl mx-auto">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
+                <span class="text-primary-light dark:text-primary-dark">Dev</span> Daily Inspiration
+            </h1>
+            <div class="flex space-x-2">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon text-gray-700 dark:text-yellow-300 hidden dark:block"></i>
+                    <i class="fas fa-sun text-gray-700 dark:text-gray-300 block dark:hidden"></i>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main>
+            <div class="quote-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 mb-6 fade-in">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary-dark flex items-center justify-center text-white">
+                        <i class="fas fa-code text-xl"></i>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button id="copy-btn" class="tooltip p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                            <i class="far fa-copy text-gray-600 dark:text-gray-300"></i>
+                            <span class="tooltip-text">Copy Quote</span>
+                        </button>
+                        <button id="share-btn" class="tooltip p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                            <i class="fas fa-share-alt text-gray-600 dark:text-gray-300"></i>
+                            <span class="tooltip-text">Share Quote</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <p id="quote-text" class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4 font-medium leading-relaxed">
+                        "The only way to learn a new programming language is by writing programs in it."
+                    </p>
+                    <p id="quote-author" class="text-right text-primary-light dark:text-primary-dark font-mono">
+                        - Dennis Ritchie
+                    </p>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button id="new-quote-btn" class="bg-primary-light dark:bg-primary-dark hover:bg-primary-dark dark:hover:bg-primary-light text-white font-medium py-2 px-6 rounded-full transition-colors flex items-center">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        New Inspiration
+                    </button>
+                </div>
+            </div>
+            
+            <div class="text-center text-sm text-gray-500 dark:text-gray-400">
+                <p>Click "New Inspiration" or press <span class="font-mono bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">Space</span> for another quote</p>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="mt-12 text-center text-gray-500 dark:text-gray-400 text-sm">
+            <p>Made with <i class="fas fa-heart text-red-500"></i> for developers worldwide</p>
+            <p class="mt-1">© 2025 Dev Daily Inspiration</p>
+        </footer>
+    </div>
+
+    <script>
+        // Quotes database
+        const quotes = [
+            {
+                text: "The only way to learn a new programming language is by writing programs in it.",
+                author: "Dennis Ritchie"
+            },
+            {
+                text: "First, solve the problem. Then, write the code.",
+                author: "John Johnson"
+            },
+            {
+                text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+                author: "Martin Fowler"
+            },
+            {
+                text: "The most disastrous thing that you can ever learn is your first programming language.",
+                author: "Alan Kay"
+            },
+            {
+                text: "The most important property of a program is whether it accomplishes the intention of its user.",
+                author: "C.A.R. Hoare"
+            },
+            {
+                text: "Programming isn't about what you know; it's about what you can figure out.",
+                author: "Chris Pine"
+            },
+            {
+                text: "The best error message is the one that never shows up.",
+                author: "Thomas Fuchs"
+            },
+            {
+                text: "Don't write better error messages, write code that doesn't need them.",
+                author: "Jason C. McDonald"
+            },
+            {
+                text: "Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.",
+                author: "Patrick McKenzie"
+            },
+            {
+                text: "It's not a bug; it's an undocumented feature.",
+                author: "Chuks "
+            },
+            {
+                text: "Code is like humor. When you have to explain it, it's bad.",
+                author: "Cory House"
+            },
+            {
+                text: "Make it work, make it right, make it fast.",
+                author: "Kent Beck"
+            },
+            {
+                text: "Optimism is an occupational hazard of programming; feedback is the treatment.",
+                author: "Kent Beck"
+            },
+            {
+                text: "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday's code.",
+                author: "Dan Salomon"
+            },
+            {
+                text: "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
+                author: "Bill Gates"
+            }
+        ];
+
+        // DOM elements
+        const quoteText = document.getElementById('quote-text');
+        const quoteAuthor = document.getElementById('quote-author');
+        const newQuoteBtn = document.getElementById('new-quote-btn');
+        const copyBtn = document.getElementById('copy-btn');
+        const shareBtn = document.getElementById('share-btn');
+        const themeToggle = document.getElementById('theme-toggle');
+
+        // Get a random quote
+        function getRandomQuote() {
+            return quotes[Math.floor(Math.random() * quotes.length)];
+        }
+
+        // Display a new quote with animation
+        function displayNewQuote() {
+            const quoteCard = document.querySelector('.quote-card');
+            quoteCard.classList.remove('fade-in');
+            
+            setTimeout(() => {
+                const {text, author} = getRandomQuote();
+                quoteText.textContent = text;
+                quoteAuthor.textContent = `- ${author}`;
+                quoteCard.classList.add('fade-in');
+            }, 300);
+        }
+
+        // Copy quote to clipboard
+        function copyQuote() {
+            const textToCopy = `${quoteText.textContent} ${quoteAuthor.textContent}`;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const tooltip = copyBtn.querySelector('.tooltip-text');
+                tooltip.textContent = 'Copied!';
+                setTimeout(() => {
+                    tooltip.textContent = 'Copy Quote';
+                }, 2000);
+            });
+        }
+
+        // Share quote
+        function shareQuote() {
+            const shareText = `${quoteText.textContent} ${quoteAuthor.textContent}\n\nGet your daily dev inspiration at ${window.location.href}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Dev Daily Inspiration',
+                    text: shareText
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+                window.open(shareUrl, '_blank');
+            }
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        }
+
+        // Check for saved theme preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Event listeners
+        newQuoteBtn.addEventListener('click', displayNewQuote);
+        copyBtn.addEventListener('click', copyQuote);
+        shareBtn.addEventListener('click', shareQuote);
+        themeToggle.addEventListener('click', toggleDarkMode);
+
+        // Keyboard shortcut (Space for new quote)
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                displayNewQuote();
+            }
+        });
+
+        // Initial quote display
+        displayNewQuote();
+    </script>
+</body>
+</html>
